@@ -33,6 +33,10 @@
     </div>
 </section>
 
+<script>
+    const cart_data = <?= isset($cart_data) ? json_encode($cart_data) : json_encode(null) ?>;
+</script>
+
 <script src="<?= $base_url ?>plugins/jquery/jquery-3.7.1.min.js"></script>
 <script src="<?= $base_url ?>plugins/sweetalert/sweetalert.min.js"></script>
 <script src="<?= $base_url ?>plugins/swiper/swiper-bundle.min.js"></script>
@@ -44,10 +48,19 @@
         const base_url = "<?= $base_url ?>";
         const notification = <?= isset($_SESSION["notification"]) ? json_encode($_SESSION["notification"]) : json_encode(null) ?>;
         const server = "<?= $base_url ?>server/server.php";
+        const user_id = "<?= isset($_SESSION["user_id"]) ? $_SESSION["user_id"] : "" ?>";
+
+        var orders = <?= $orders ?>;
+
+        select_active_tab();
 
         if (notification) {
             flash_alert(notification);
         }
+
+        $(document).scroll(function() {
+            select_active_tab();
+        })
 
         $(".login").click(function() {
             location.href = base_url + "login";
@@ -85,6 +98,121 @@
                 }
             });
         })
+
+        $(".add_cart").click(function() {
+            const parent_div = $(this).parent(".product-box");
+            const product_name = parent_div.children(".product-title").text();
+            const product_price = parseFloat(parent_div.children(".product-price").text().replace("₱", ""));
+            const product_image = parent_div.children(".product-img").attr("src").split("/")[6];
+
+            var formData = new FormData();
+
+            formData.append('user_id', user_id);
+            formData.append('product_name', product_name);
+            formData.append('product_price', product_price);
+            formData.append('product_image', product_image);
+
+            formData.append('add_to_cart', true);
+
+            $.ajax({
+                url: server,
+                data: formData,
+                type: 'POST',
+                dataType: 'JSON',
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    if (response) {
+                        orders++;
+                    }
+                },
+                error: function(_, _, error) {
+                    console.error(error);
+                }
+            });
+        })
+
+        $(".add-cart").click(function() {
+            if (!user_id) {
+                location.href = base_url + "login";
+            }
+        })
+
+        $(document).on("click", ".cart-remove", function() {
+            var cartBox = $(this).closest('.cart-box');
+            var productTitle = cartBox.find('.cart-product-title').text();
+
+            var formData = new FormData();
+
+            formData.append('item_name', productTitle);
+
+            formData.append('remove_item', true);
+
+            $.ajax({
+                url: server,
+                data: formData,
+                type: 'POST',
+                dataType: 'JSON',
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    orders--;
+                },
+                error: function(_, _, error) {
+                    console.error(error);
+                }
+            });
+        })
+
+        $("#btn_place_order").click(function() {
+            if (orders > 0) {
+                $(this).text("Please wait...");
+                $(this).attr("disabled", true);
+
+                var formData = new FormData();
+
+                formData.append('user_id', user_id);
+
+                formData.append('place_order', true);
+
+                $.ajax({
+                    url: server,
+                    data: formData,
+                    type: 'POST',
+                    dataType: 'JSON',
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        location.href = base_url;
+                    },
+                    error: function(_, _, error) {
+                        console.error(error);
+                    }
+                });
+            } else {
+                Swal.fire({
+                    title: "Oops...",
+                    text: "There is no order to place yet! Please make an order first.",
+                    icon: "error"
+                });
+            }
+        })
+
+        function select_active_tab() {
+            var headerHieght = $(".header").outerHeight();
+            var scrollPosition = $(document).scrollTop() + headerHieght;
+
+            $('section').each(function() {
+                var sectionTop = $(this).offset().top;
+                var sectionHeight = $(this).outerHeight();
+                var sectionId = $(this).attr('id');
+
+                if (scrollPosition >= sectionTop && scrollPosition < (sectionTop + sectionHeight + headerHieght)) {
+                    $('.nav').removeClass('active_nav');
+                    $('a[href="#' + sectionId + '"].nav').addClass('active_nav');
+                }
+            });
+        }
 
         function flash_alert(notification) {
             Swal.fire({

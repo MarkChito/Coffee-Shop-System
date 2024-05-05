@@ -60,56 +60,56 @@
             <img src="<?= $base_url ?>assets/image/coffee1-Cafecito-de-Olla.png" alt="" class="product-img">
             <h2 class="product-title">Cafecito de Olla</h2>
             <span class="product-price">₱239</span>
-            <i class='fas fa-shopping-cart add-cart'></i>
+            <i class='fas fa-shopping-cart add-cart <?= isset($_SESSION["user_id"]) ? "add_cart" : null ?>'></i>
         </div>
         <!-- BOX 2 -->
         <div class="product-box">
             <img src="<?= $base_url ?>assets/image/coffee2-Cinnamon-Coffee-Smoothie.png" alt="" class="product-img">
             <h2 class="product-title">Cinnamon Coffee Smoothie</h2>
             <span class="product-price">₱269</span>
-            <i class='fas fa-shopping-cart add-cart'></i>
+            <i class='fas fa-shopping-cart add-cart <?= isset($_SESSION["user_id"]) ? "add_cart" : null ?>'></i>
         </div>
         <!-- BOX 3 -->
         <div class="product-box">
             <img src="<?= $base_url ?>assets/image/coffee3-Creamy-Gourmet-Hot-Chocolate.png" alt="" class="product-img">
             <h2 class="product-title">Creamy Gourmet Hot Chocolate</h2>
             <span class="product-price">₱219</span>
-            <i class='fas fa-shopping-cart add-cart'></i>
+            <i class='fas fa-shopping-cart add-cart <?= isset($_SESSION["user_id"]) ? "add_cart" : null ?>'></i>
         </div>
         <!-- BOX 4 -->
         <div class="product-box">
             <img src="<?= $base_url ?>assets/image/coffee7-Iced-White-Mocha-with-Caramel-and-Salted-Cold-Foam.png" alt="" class="product-img">
             <h2 class="product-title">Iced White Mocha with Caramel</h2>
             <span class="product-price">₱299</span>
-            <i class='fas fa-shopping-cart add-cart'></i>
+            <i class='fas fa-shopping-cart add-cart <?= isset($_SESSION["user_id"]) ? "add_cart" : null ?>'></i>
         </div>
         <!-- BOX 5 -->
         <div class="product-box">
             <img src="<?= $base_url ?>assets/image/coffee5-Frozen-Irish-Coffee.png" alt="" class="product-img">
             <h2 class="product-title">Frozen Irish Coffee</h2>
             <span class="product-price">₱309</span>
-            <i class='fas fa-shopping-cart add-cart'></i>
+            <i class='fas fa-shopping-cart add-cart <?= isset($_SESSION["user_id"]) ? "add_cart" : null ?>'></i>
         </div>
         <!-- BOX 6 -->
         <div class="product-box">
             <img src="<?= $base_url ?>assets/image/coffee6-Honey-Almond-Milk-Flat-White.png" alt="" class="product-img">
             <h2 class="product-title">Honey Almond Milk Flat White</h2>
             <span class="product-price">₱249</span>
-            <i class='fas fa-shopping-cart add-cart'></i>
+            <i class='fas fa-shopping-cart add-cart <?= isset($_SESSION["user_id"]) ? "add_cart" : null ?>'></i>
         </div>
         <!-- BOX 7 -->
         <div class="product-box">
             <img src="<?= $base_url ?>assets/image/coffee8-Maple-Bacon-Latte.png" alt="" class="product-img">
             <h2 class="product-title">Maple Bacon Latte</h2>
             <span class="product-price">₱239</span>
-            <i class='fas fa-shopping-cart add-cart'></i>
+            <i class='fas fa-shopping-cart add-cart <?= isset($_SESSION["user_id"]) ? "add_cart" : null ?>'></i>
         </div>
         <!-- BOX 8 -->
         <div class="product-box">
             <img src="<?= $base_url ?>assets/image/coffee9-Pumpkin-Spice-Coffee.png" alt="" class="product-img">
             <h2 class="product-title">Pumpkin-Spice-Coffee</h2>
             <span class="product-price">₱319</span>
-            <i class='fas fa-shopping-cart add-cart'></i>
+            <i class='fas fa-shopping-cart add-cart <?= isset($_SESSION["user_id"]) ? "add_cart" : null ?>'></i>
         </div>
     </div>
 </section>
@@ -134,7 +134,7 @@
                 <p>The coffee shop's cozy ambiance, friendly staff, and aromatic brews made it a delightful spot for
                     catching up with friends over a latte.</p>
                 <h3>Miguel Cruz</h3>
-                <span>satisfied client</span>
+                <span>Satisfied Client</span>
             </div>
 
             <div class="swiper-slide box">
@@ -151,7 +151,7 @@
                 <p>I was impressed by the extensive menu options, from classic espresso drinks to unique specialty
                     blends, each crafted with care and precision.</p>
                 <h3>Maria Santos</h3>
-                <span>satisfied client</span>
+                <span>Satisfied Client</span>
             </div>
 
             <div class="swiper-slide box">
@@ -168,7 +168,7 @@
                 <p>The coffee shop's attention to detail in both the presentation of their beverages and the
                     selection of locally sourced beans truly elevated the coffee-drinking experience</p>
                 <h3>Antonio Reyes</h3>
-                <span>satisfied client</span>
+                <span>Satisfied Client</span>
             </div>
 
             <div class="swiper-slide box">
@@ -185,7 +185,7 @@
                 <p>The coffee shop's inviting atmosphere, adorned with warm lighting and comfortable seating,
                     provided the perfect setting for a relaxed morning coffee or an afternoon pick-me-up.</p>
                 <h3>Sofia Gonzales</h3>
-                <span>satisfied client</span>
+                <span>Satisfied Client</span>
             </div>
         </div>
         <div class="swiper-pagination"></div>
@@ -196,7 +196,7 @@
 <section class="book" id="book">
     <h1 class="heading">booking <span>reserve a table</span></h1>
 
-    <form action="">
+    <form action="javascript:void(0)">
         <input type="text" placeholder="Name" class="box">
         <input type="email" placeholder="Email" class="box">
         <input type="number" placeholder="Number" class="box">

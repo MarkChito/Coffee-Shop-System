@@ -66,6 +66,46 @@ if (isset($_POST["login"])) {
     echo json_encode($response);
 }
 
+if (isset($_POST["add_to_cart"])) {
+    $response = false;
+
+    $user_id = $_POST["user_id"];
+    $product_name = $_POST["product_name"];
+    $product_price = $_POST["product_price"];
+    $product_image = $_POST["product_image"];
+    $status = "Cart";
+
+    if (!$model->MOD_CHECK_CART($product_name)) {
+        $model->MOD_ADD_TO_CART($user_id, $product_name, $product_price, $product_image,  $status);
+
+        $response = true;
+    }
+
+    echo json_encode($response);
+}
+
+if (isset($_POST["remove_item"])) {
+    $item_name = $_POST["item_name"];
+
+    $model->MOD_REMOVE_FROM_CART($item_name);
+
+    echo json_encode(true);
+}
+
+if (isset($_POST["place_order"])) {
+    $user_id = $_POST["user_id"];
+
+    $model->MOD_PLACE_ORDER($user_id);
+
+    $_SESSION["notification"] = array(
+        "title" => "Success!",
+        "text" => "Your order has been placed.",
+        "icon" => "success"
+    );
+
+    echo json_encode(true);
+}
+
 if (isset($_POST["logout"])) {
     unset($_SESSION["user_id"]);
 

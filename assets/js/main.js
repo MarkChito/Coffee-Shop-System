@@ -24,7 +24,16 @@ function start() {
 }
 
 // ============= UPDATE & RERENDER ===========
-function update() {
+function update(itemsAdded) {
+  if (itemsAdded.length > 0) {
+    $("#orders_badge").removeClass("d-none");
+    $("#no_items_yet").addClass("d-none");
+  }
+  else {
+    $("#orders_badge").addClass("d-none");
+    $("#no_items_yet").removeClass("d-none");
+  }
+
   addEvents();
   updateTotal();
 }
@@ -44,14 +53,10 @@ function addEvents() {
   });
 
   // Add item to cart
-  let addCart_btns = document.querySelectorAll(".add-cart");
+  let addCart_btns = document.querySelectorAll(".add_cart");
   addCart_btns.forEach((btn) => {
     btn.addEventListener("click", handle_addCartItem);
   });
-
-  // Buy Order
-  const buy_btn = document.querySelector(".btn-buy");
-  buy_btn.addEventListener("click", handle_buyOrder);
 }
 
 // ============= HANDLE EVENTS FUNCTIONS =============
@@ -70,8 +75,13 @@ function handle_addCartItem() {
   };
 
   // handle item is already exist
-  if (itemsAdded.find((el) => el.title == newToAdd.title)) {
-    alert("This Item Is Already Exist!");
+  if (itemsAdded.find((el) => el.title == newToAdd.title) || isItemNameAvailable(newToAdd.title)) {
+    Swal.fire({
+      title: "Oops...",
+      text: "This item already exists!",
+      icon: "error"
+    });
+
     return;
   } else {
     itemsAdded.push(newToAdd);
@@ -84,7 +94,7 @@ function handle_addCartItem() {
   const cartContent = cart.querySelector(".cart-content");
   cartContent.appendChild(newNode);
 
-  update();
+  update(itemsAdded);
 }
 
 function handle_removeCartItem() {
@@ -95,7 +105,7 @@ function handle_removeCartItem() {
       this.parentElement.querySelector(".cart-product-title").innerHTML
   );
 
-  update();
+  update(itemsAdded);
 }
 
 function handle_changeItemQuantity() {
@@ -104,20 +114,16 @@ function handle_changeItemQuantity() {
   }
   this.value = Math.floor(this.value); // to keep it integer
 
-  update();
+  update(itemsAdded);
 }
 
-function handle_buyOrder() {
-  if (itemsAdded.length <= 0) {
-    alert("There is No Order to Place Yet! \nPlease Make an Order first.");
-    return;
+function isItemNameAvailable(itemName) {
+  for (let i = 0; i < cart_data.length; i++) {
+    if (cart_data[i].item_name === itemName) {
+      return true;
+    }
   }
-  const cartContent = cart.querySelector(".cart-content");
-  cartContent.innerHTML = "";
-  alert("Your Order is Placed Successfully :)");
-  itemsAdded = [];
-
-  update();
+  return false;
 }
 
 // =========== UPDATE & RERENDER FUNCTIONS =========
@@ -148,9 +154,10 @@ function CartBoxComponent(title, price, imgSrc) {
         <div class="detail-box">
             <div class="cart-product-title">${title}</div>
             <div class="cart-price">${price}</div>
-            <input type="number" value="1" class="cart-quantity">
+            <div class="cart-product-qty">QTY: <strong>1</strong></div>
+            <input type="number" value="1" class="cart-quantity d-none">
         </div>
         <!-- REMOVE CART  -->
-        <i class='bx bxs-trash-alt cart-remove'></i>
+        <i class='fas fa-trash-alt text-danger cart-remove'></i>
     </div>`;
 }
