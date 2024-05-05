@@ -2,7 +2,7 @@
     <div class="row">
         <div class="content">
             <h3>fresh coffee in the morning</h3>
-            <a href="#menu" class="btn">buy one now</a>
+            <a href="#menu" class="btn">Buy One How</a>
         </div>
 
         <div class="image">
@@ -27,29 +27,22 @@
         </div>
 
         <div class="content">
-            <h3 class="title">what's make our coffee special!</h3>
-            <p>We Are Passionate About Coffee And Believe That Every Cup Tells A Story. We
-                Are Dedicated To Providing An Exceptional
-                Coffee Experience To Our Customers. Our Love For Coffee Has Led Us On A Voyage Of Exploration And
-                Discovery, As We Travel The World In Search Of The Finest Coffee Beans, Carefully Roasted And Brewed
-                To Perfection.
-            </p>
-            <p>But Coffee Is Not Just A Drink, It's An Experience. Our Warm And Inviting Atmosphere Is
-                Designed To Be A Haven For Coffee Lovers, Where They Can Relax, Connect, And Embark On Their Own
-                Coffee Voyages.</p>
-            <a href="#" class="btn">read more</a>
+            <h3 class="title">What's Make Our Coffee Special!</h3>
+            <p>We are passionate about coffee and believe that every cup tells a story. We are dedicated to providing an exceptional coffee experience to our customers. Our love for coffee has led us on a voyage of exploration and discovery, as we travel the world in search of the finest coffee beans, carefully roasted and brewed to perfection.</p>
+            <p>But coffee is not just a drink, it's an experience. Our warm and inviting atmosphere is designed to be a haven for coffee lovers, where they can relax, connect, and embark on their own coffee voyages.</p>
+            <a href="#" class="btn">Read More</a>
             <div class="icons-container">
                 <div class="icons">
                     <img src="<?= $base_url ?>assets/image/about-icon-1.png" alt="">
-                    <h3>quality coffee</h3>
+                    <h3>Quality Coffee</h3>
                 </div>
                 <div class="icons">
                     <img src="<?= $base_url ?>assets/image/about-icon-2.png" alt="">
-                    <h3>our branches</h3>
+                    <h3>Our Branches</h3>
                 </div>
                 <div class="icons">
                     <img src="<?= $base_url ?>assets/image/about-icon-3.png" alt="">
-                    <h3>free delivery</h3>
+                    <h3>Free Delivery</h3>
                 </div>
             </div>
         </div>
@@ -140,7 +133,7 @@
                 </div>
                 <p>The coffee shop's cozy ambiance, friendly staff, and aromatic brews made it a delightful spot for
                     catching up with friends over a latte.</p>
-                <h3>Maria Santos</h3>
+                <h3>Miguel Cruz</h3>
                 <span>satisfied client</span>
             </div>
 
@@ -157,7 +150,7 @@
                 </div>
                 <p>I was impressed by the extensive menu options, from classic espresso drinks to unique specialty
                     blends, each crafted with care and precision.</p>
-                <h3>Miguel Cruz</h3>
+                <h3>Maria Santos</h3>
                 <span>satisfied client</span>
             </div>
 
@@ -208,6 +201,6 @@
         <input type="email" placeholder="Email" class="box">
         <input type="number" placeholder="Number" class="box">
         <textarea name="" placeholder="Message" class="box" id="" cols="30" rows="10"></textarea>
-        <input type="submit" value="send message" class="btn">
+        <input type="submit" value="Send Message" class="btn">
     </form>
 </section>
