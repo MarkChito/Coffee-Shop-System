@@ -20,14 +20,14 @@
     <header class="header">
         <div id="menu-btn" class="fas fa-bars"></div>
 
-        <a href="#" class="logo" style="text-decoration: none;">coffee Shop <i class="fas fa-mug-hot"></i></a>
+        <a href="#" class="logo" style="text-decoration: none;">Coffee Shop <i class="fas fa-mug-hot"></i></a>
 
         <nav class="navbar">
-            <a href="#home" style="text-decoration: none;">home</a>
-            <a href="#about" style="text-decoration: none;">about</a>
-            <a href="#menu" style="text-decoration: none;">menu</a>
-            <a href="#review" style="text-decoration: none;">review</a>
-            <a href="#book" style="text-decoration: none;">book</a>
+            <a href="#home" style="text-decoration: none;">Home</a>
+            <a href="#about" style="text-decoration: none;">About</a>
+            <a href="#menu" style="text-decoration: none;">Menu</a>
+            <a href="#review" style="text-decoration: none;">Review</a>
+            <a href="#book" style="text-decoration: none;">Book</a>
             <a href="javascript:void(0)" class="<?= isset($_SESSION["user_id"]) ? "logout" : "login" ?>" style="text-decoration: none;"><?= isset($name) ? $name : "Account" ?></a>
         </nav>
 

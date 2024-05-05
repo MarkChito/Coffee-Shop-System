@@ -43,7 +43,7 @@ if (isset($_POST["login"])) {
 
             $_SESSION["notification"] = array(
                 "title" => "Success!",
-                "text" => "OK",
+                "text" => "Welcome, " . $user_data[0]->name . "!",
                 "icon" => "success"
             );
 
@@ -64,4 +64,16 @@ if (isset($_POST["login"])) {
     }
 
     echo json_encode($response);
+}
+
+if (isset($_POST["logout"])) {
+    unset($_SESSION["user_id"]);
+
+    $_SESSION["notification"] = array(
+        "title" => "Success!",
+        "text" => "You have been logged out",
+        "icon" => "success"
+    );
+
+    echo json_encode(true);
 }
