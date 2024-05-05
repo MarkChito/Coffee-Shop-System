@@ -1,4 +1,10 @@
-<?php $base_url = "http://localhost/Coffee-Shop-System/" ?>
+<?php
+$base_url = "http://localhost/Coffee-Shop-System/";
+
+if (session_status() != PHP_SESSION_ACTIVE) {
+    session_start();
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -133,6 +139,10 @@
                 if (password == confirm_password) {
                     var formData = new FormData();
 
+                    formData.append('name', name);
+                    formData.append('username', username);
+                    formData.append('password', password);
+
                     formData.append('register', true);
 
                     $.ajax({
@@ -143,7 +153,12 @@
                         processData: false,
                         contentType: false,
                         success: function(response) {
-                            console.log(response);
+                            if (response) {
+                                location.href = base_url + "login";
+                            } else {
+                                $("#register_username").addClass("is-invalid");
+                                $("#error_register_username").removeClass("d-none");
+                            }
                         },
                         error: function(_, _, error) {
                             console.error(error);
@@ -157,13 +172,18 @@
                 }
             })
 
+            $("#register_username").keydown(function() {
+                $("#register_username").removeClass("is-invalid");
+                $("#error_register_username").addClass("d-none");
+            })
+
             $("#register_password").keydown(function() {
                 $("#register_password").removeClass("is-invalid");
                 $("#register_confirm_password").removeClass("is-invalid");
 
                 $("#error_register_password").addClass("d-none");
             })
-            
+
             $("#register_confirm_password").keydown(function() {
                 $("#register_password").removeClass("is-invalid");
                 $("#register_confirm_password").removeClass("is-invalid");
