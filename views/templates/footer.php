@@ -33,17 +33,21 @@
     </div>
 </section>
 
+<script src="<?= $base_url ?>plugins/jquery/jquery-3.7.1.min.js"></script>
+<script src="<?= $base_url ?>plugins/sweetalert/sweetalert.min.js"></script>
 <script src="<?= $base_url ?>plugins/swiper/swiper-bundle.min.js"></script>
 <script src="<?= $base_url ?>assets/js/main.js"></script>
 <script src="<?= $base_url ?>assets/js/script.js"></script>
-<script src="<?= $base_url ?>plugins/jquery/jquery-3.7.1.min.js"></script>
-<script src="<?= $base_url ?>plugins/sweetalert/sweetalert.min.js"></script>
 
 <script>
     jQuery(document).ready(function() {
         const base_url = "<?= $base_url ?>";
         const notification = <?= isset($_SESSION["notification"]) ? json_encode($_SESSION["notification"]) : json_encode(null) ?>;
         const server = "<?= $base_url ?>server/server.php";
+
+        if (notification) {
+            flash_alert(notification);
+        }
 
         $(".login").click(function() {
             location.href = base_url + "login";
@@ -60,10 +64,35 @@
                 confirmButtonText: "Logout"
             }).then((result) => {
                 if (result.isConfirmed) {
+                    var formData = new FormData();
 
+                    formData.append('logout', true);
+
+                    $.ajax({
+                        url: server,
+                        data: formData,
+                        type: 'POST',
+                        dataType: 'JSON',
+                        processData: false,
+                        contentType: false,
+                        success: function(response) {
+                            location.href = base_url;
+                        },
+                        error: function(_, _, error) {
+                            console.error(error);
+                        }
+                    });
                 }
             });
         })
+
+        function flash_alert(notification) {
+            Swal.fire({
+                title: notification.title,
+                text: notification.text,
+                icon: notification.icon
+            });
+        }
     })
 </script>
 
