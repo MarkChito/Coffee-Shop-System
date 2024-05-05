@@ -39,6 +39,28 @@ class Model
 
         return $userObjects;
     }
+    
+    public function MOD_GET_USER_DATA($user_id)
+    {
+        $conn = $this->MOD_CONNECT_TO_DATABASE();
+
+        $sql = $conn->prepare("SELECT * FROM `tbl_info_useraccounts` WHERE id = ?");
+        $sql->bind_param("s", $user_id);
+        $sql->execute();
+
+        $result = $sql->get_result();
+
+        $userObjects = array();
+
+        while ($userObject = $result->fetch_object()) {
+            $userObjects[] = $userObject;
+        }
+
+        $sql->close();
+        $conn->close();
+
+        return $userObjects;
+    }
 
     public function MOD_CREATE_AN_ACCOUNT($name, $username, $password)
     {

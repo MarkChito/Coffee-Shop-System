@@ -7,6 +7,12 @@ if (session_status() != PHP_SESSION_ACTIVE) {
 
 $base_url = "http://localhost/Coffee-Shop-System/";
 
+if (isset($_SESSION["user_id"])) {
+    $user_data = $model->MOD_GET_USER_DATA($_SESSION["user_id"]);
+
+    $name = $user_data[0]->name;
+}
+
 include_once "views/templates/header.php";
 include_once "views/pages/home_view.php";
 include_once "views/templates/footer.php";
