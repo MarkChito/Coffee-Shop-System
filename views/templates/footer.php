@@ -36,6 +36,29 @@
 <script src="<?= $base_url ?>plugins/swiper/swiper-bundle.min.js"></script>
 <script src="<?= $base_url ?>assets/js/main.js"></script>
 <script src="<?= $base_url ?>assets/js/script.js"></script>
+<script src="<?= $base_url ?>plugins/jquery/jquery-3.7.1.min.js"></script>
+<script src="<?= $base_url ?>plugins/sweetalert/sweetalert.min.js"></script>
+
+<script>
+    jQuery(document).ready(function() {
+        $(".logout").click(function() {
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You are going to logout!",
+                icon: "question",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Logout"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    
+                }
+            });
+        })
+    })
+</script>
+
 </body>
 
 </html>

@@ -29,8 +29,10 @@ if (session_status() != PHP_SESSION_ACTIVE) {
 
             <div class="card">
                 <div class="card-header text-center p-4">
-                    <img src="<?= $base_url ?>assets/image/home-img-3.png" style="max-width: 200px; max-height: 200px; border-radius: 50%;" class="mb-2">
-                    <h1>Coffee Shop System</h1>
+                    <a href="<?= $base_url ?>" class="text-dark" style="text-decoration: none;">
+                        <img src="<?= $base_url ?>assets/image/home-img-3.png" style="max-width: 200px; max-height: 200px; border-radius: 50%;" class="mb-2">
+                        <h1>Coffee Shop System</h1>
+                    </a>
                 </div>
                 <div class="card-body">
                     <p class="text-center">Please login to continue</p>

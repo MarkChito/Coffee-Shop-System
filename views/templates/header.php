@@ -28,7 +28,7 @@
             <a href="#menu" style="text-decoration: none;">menu</a>
             <a href="#review" style="text-decoration: none;">review</a>
             <a href="#book" style="text-decoration: none;">book</a>
-            <a href="<?= $base_url ?>login" style="text-decoration: none;"><?= isset($name) ? $name : "account" ?></a>
+            <a href="javascript:void(0)" class="<?= isset($_SESSION["user_id"]) ? "logout" : null ?>" style="text-decoration: none;"><?= isset($name) ? $name : "account" ?></a>
         </nav>
 
         <i class="fas fa-shopping-cart" id="cart-icon"></i>
