@@ -23,12 +23,12 @@
         <a href="#" class="logo" style="text-decoration: none;">Coffee Shop <i class="fas fa-mug-hot"></i></a>
 
         <nav class="navbar">
-            <a href="#home" style="text-decoration: none;">Home</a>
-            <a href="#about" style="text-decoration: none;">About</a>
-            <a href="#menu" style="text-decoration: none;">Menu</a>
-            <a href="#review" style="text-decoration: none;">Review</a>
-            <a href="#book" style="text-decoration: none;">Book</a>
-            <a href="javascript:void(0)" class="<?= isset($_SESSION["user_id"]) ? "logout" : "login" ?>" style="text-decoration: none;"><?= isset($name) ? $name : "Account" ?></a>
+            <a href="#home" class="nav" style="text-decoration: none;">Home</a>
+            <a href="#about" class="nav" style="text-decoration: none;">About</a>
+            <a href="#menu" class="nav" style="text-decoration: none;">Menu</a>
+            <a href="#review" class="nav" style="text-decoration: none;">Review</a>
+            <a href="#book" class="nav" style="text-decoration: none;">Book</a>
+            <a href="javascript:void(0)" class="<?= isset($_SESSION["user_id"]) ? "logout nav" : "login nav" ?>" style="text-decoration: none;"><?= isset($name) ? $name : "Account" ?></a>
         </nav>
 
         <i class="fas fa-shopping-cart" id="cart-icon"></i>

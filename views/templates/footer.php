@@ -11,7 +11,7 @@
         </div>
 
         <div class="box">
-            <h3>Contact Info</h3>
+            <h3>Contact Information</h3>
             <a href="javascript:void(0)" style="text-decoration: none;"><i class="fas fa-phone"></i> +123-456-7890</a>
             <a href="javascript:void(0)" style="text-decoration: none;"><i class="fas fa-phone"></i> +111-222-3333</a>
             <a href="javascript:void(0)" style="text-decoration: none;"><i class="fas fa-envelope"></i> coffeeshop@gmail.com</a>
@@ -19,7 +19,7 @@
         </div>
 
         <div class="box">
-            <h3>Contact Info</h3>
+            <h3>Social Media Links</h3>
             <a href="javascript:void(0)" style="text-decoration: none;"><i class="fab fa-facebook-f"></i> Facebook</a>
             <a href="javascript:void(0)" style="text-decoration: none;"><i class="fab fa-twitter"></i> Twitter</a>
             <a href="javascript:void(0)" style="text-decoration: none;"><i class="fab fa-instagram"></i> Instagram</a>
