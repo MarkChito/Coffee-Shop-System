@@ -1,6 +1,6 @@
 /* Google Fonts  */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 /* Globals  */
 /* * {
@@ -195,12 +195,21 @@ img {
 
 .product-box {
     position: relative;
+    display: inline-block;
 }
 
 .product-box:hover {
-    padding: 10px;
-    border: 1px solid var(--text-color);
+    padding: .9rem 1.5rem;
+    border: var(--border);
+    border-radius: var(--border-radius);
+    color: var(--main-color);
+    background: none;
+    cursor: pointer;
+    margin-top: 1rem;
+    font-size: 1.7rem;
     transition: .4s;
+    border-radius: var(--border-radius-hover);
+    border: var(--border-hover);
 }
 
 .product-img {
@@ -391,7 +400,7 @@ section {
 }
 
 #cart-icon {
-    font-size: 1.8rem;
+    font-size: 2rem;
     cursor: pointer;
 }
 
@@ -745,10 +754,6 @@ section {
     padding: 2rem 1rem;
     margin-top: 1rem;
     color: var(--main-color);
-}
-
-.footer .credit span {
-    border-bottom: var(--border-hover);
 }
 
 /* MEDIA QUERIES */

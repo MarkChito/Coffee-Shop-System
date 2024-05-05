@@ -33,7 +33,6 @@ function update() {
 function addEvents() {
   // Remove items from cart
   let cartRemove_btns = document.querySelectorAll(".cart-remove");
-  console.log(cartRemove_btns);
   cartRemove_btns.forEach((btn) => {
     btn.addEventListener("click", handle_removeCartItem);
   });
@@ -63,7 +62,6 @@ function handle_addCartItem() {
   let title = product.querySelector(".product-title").innerHTML;
   let price = product.querySelector(".product-price").innerHTML;
   let imgSrc = product.querySelector(".product-img").src;
-  console.log(title, price, imgSrc);
 
   let newToAdd = {
     title,
@@ -129,7 +127,7 @@ function updateTotal() {
   let total = 0;
   cartBoxes.forEach((cartBox) => {
     let priceElement = cartBox.querySelector(".cart-price");
-    let price = parseFloat(priceElement.innerHTML.replace("$", ""));
+    let price = parseFloat(priceElement.innerHTML.replace("₱", ""));
     let quantity = cartBox.querySelector(".cart-quantity").value;
     total += price * quantity;
   });
@@ -139,7 +137,7 @@ function updateTotal() {
   // or you can use also
   // total = Math.round(total * 100) / 100;
 
-  totalElement.innerHTML = "$" + total;
+  totalElement.innerHTML = "₱" + total;
 }
 
 // ============= HTML COMPONENTS =============
