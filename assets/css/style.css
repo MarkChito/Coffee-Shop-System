@@ -1,7 +1,3 @@
-/* Google Fonts  */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-
 :root {
     --main-color: #443;
     --sec-color: #4946fd;
@@ -11,18 +7,6 @@
     --border-radius-hover: 4% 95% 6% 95% / 95% 4% 92% 5%;
     --border: .2rem solid var(--main-color);
     --border-hover: .2rem dashed var(--main-color);
-}
-
-* {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    /* outline: none;
-    border: none;
-    text-decoration: none;
-    text-transform: capitalize; */
-    transition: all .2s linear;
 }
 
 /* CART  */

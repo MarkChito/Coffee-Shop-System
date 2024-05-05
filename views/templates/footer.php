@@ -41,6 +41,14 @@
 
 <script>
     jQuery(document).ready(function() {
+        const base_url = "<?= $base_url ?>";
+        const notification = <?= isset($_SESSION["notification"]) ? json_encode($_SESSION["notification"]) : json_encode(null) ?>;
+        const server = "<?= $base_url ?>server/server.php";
+
+        $(".login").click(function() {
+            location.href = base_url + "login";
+        })
+
         $(".logout").click(function() {
             Swal.fire({
                 title: "Are you sure?",
@@ -52,7 +60,7 @@
                 confirmButtonText: "Logout"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    
+
                 }
             });
         })
