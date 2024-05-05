@@ -28,23 +28,23 @@
             <a href="#menu" style="text-decoration: none;">menu</a>
             <a href="#review" style="text-decoration: none;">review</a>
             <a href="#book" style="text-decoration: none;">book</a>
-            <a href="<?= $base_url ?>login" style="text-decoration: none;">account</a>
+            <a href="<?= $base_url ?>login" style="text-decoration: none;"><?= isset($name) ? $name : "account" ?></a>
         </nav>
 
         <i class="fas fa-shopping-cart" id="cart-icon"></i>
 
         <div class="cart">
             <h2 class="cart-title">Your Cart</h2>
-            
+
             <div class="cart-content"></div>
-            
+
             <div class="total">
                 <div class="total-title">Total</div>
                 <div class="total-price">$0</div>
             </div>
-            
+
             <button type="button" class="btn-buy">Buy Now</button>
-            
+
             <i class='fas fa-times' id="cart-close"></i>
         </div>
     </header>

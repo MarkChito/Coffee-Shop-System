@@ -39,3 +39,5 @@
 </body>
 
 </html>
+
+<?php unset($_SESSION["notification"]) ?>

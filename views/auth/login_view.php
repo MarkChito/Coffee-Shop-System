@@ -49,7 +49,7 @@ if (session_status() != PHP_SESSION_ACTIVE) {
                             <label class="form-check-label" for="login_show_password">Show Password</label>
                         </div>
 
-                        <button type="submit" class="btn btn-primary w-100 mb-2">Login</button>
+                        <button type="submit" class="btn btn-primary w-100 mb-2" id="login_submit">Login</button>
 
                         <p class="mb-0">
                             Need an Account?
@@ -115,6 +115,40 @@ if (session_status() != PHP_SESSION_ACTIVE) {
                 flash_alert(notification);
             }
 
+            $("#login_form").submit(function() {
+                const username = $("#login_username").val();
+                const password = $("#login_password").val();
+
+                $("#login_submit").text("Please wait...");
+                $("#login_submit").attr("disabled", true);
+
+                var formData = new FormData();
+
+                formData.append('username', username);
+                formData.append('password', password);
+
+                formData.append('login', true);
+
+                $.ajax({
+                    url: server,
+                    data: formData,
+                    type: 'POST',
+                    dataType: 'JSON',
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        if (response) {
+                            location.href = base_url;
+                        } else {
+                            location.href = base_url + "login";
+                        }
+                    },
+                    error: function(_, _, error) {
+                        console.error(error);
+                    }
+                });
+            })
+
             $("#login_show_password").change(function() {
                 var passwordField = $("#login_password");
                 var passwordFieldType = passwordField.attr("type");
@@ -137,6 +171,9 @@ if (session_status() != PHP_SESSION_ACTIVE) {
                 const confirm_password = $("#register_confirm_password").val();
 
                 if (password == confirm_password) {
+                    $("#register_submit").text("Please wait...");
+                    $("#register_submit").attr("disabled", true);
+
                     var formData = new FormData();
 
                     formData.append('name', name);
@@ -158,6 +195,9 @@ if (session_status() != PHP_SESSION_ACTIVE) {
                             } else {
                                 $("#register_username").addClass("is-invalid");
                                 $("#error_register_username").removeClass("d-none");
+
+                                $("#register_submit").text("Register");
+                                $("#register_submit").removeAttr("disabled");
                             }
                         },
                         error: function(_, _, error) {

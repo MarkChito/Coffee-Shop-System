@@ -52,3 +52,5 @@ class Model
         $conn->close();
     }
 }
+
+$model = new model();
