@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Shop</title>
+
+    <!-- box icons  -->
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <!-- styles  -->
+
+    <!-- SWIPER -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- Font Awesome CDN Link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+    <!-- HEADER  -->
+    <header class="header">
+        <!-- NAV  -->
+        <div id="menu-btn" class="fas fa-bars"></div>
+
+        <a href="#" class="logo">coffee <i class="fas fa-mug-hot"></i></a>
+
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#about">about</a>
+            <a href="#menu">menu</a>
+            <a href="#review">review</a>
+            <a href="#book">book</a>
+        </nav>
+
+        <!-- CART ICON  -->
+        <i class='bx bx-shopping-bag' id="cart-icon"></i>
+
+        <!-- CART  -->
+        <div class="cart">
+            <h2 class="cart-title">Your Cart</h2>
+
+            <!-- CONTENT  -->
+            <div class="cart-content">
+
+
+            </div>
+
+            <!-- TOTAL   -->
+            <div class="total">
+                <div class="total-title">Total</div>
+                <div class="total-price">$0</div>
+            </div>
+            <!-- BUY BUTTON  -->
+            <button type="button" class="btn-buy">Buy Now</button>
+            <!-- CART CLOSE  -->
+            <i class='bx bx-x' id="cart-close"></i>
+        </div>
+        </div>
+    </header>
+
+    <section class="home" id="home">
+        <div class="row">
+            <div class="content">
+                <h3>fresh coffee in the morning</h3>
+                <a href="#" class="btn">buy one now</a>
+            </div>
+
+            <div class="image">
+                <img src="assets/image/home-img-1.png" class="main-home-image" alt="">
+            </div>
+        </div>
+
+        <div class="image-slider">
+            <img src="assets/image/home-img-1.png" alt="">
+            <img src="assets/image/home-img-2.png" alt="">
+            <img src="assets/image/home-img-3.png" alt="">
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <h1 class="heading">about us <span>why choose us</span></h1>
+
+        <div class="row">
+            <div class="image">
+                <img src="assets/image/about-img.png" alt="">
+            </div>
+
+            <div class="content">
+                <h3 class="title">what's make our coffee special!</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel rerum laboriosam reprehenderit ipsa id
+                    repellat odio illum, voluptas, necessitatibus assumenda adipisci. Hic, maiores iste? Excepturi illo
+                    dolore mollitia qui quia.</p>
+                <a href="#" class="btn">read more</a>
+                <div class="icons-container">
+                    <div class="icons">
+                        <img src="assets/image/about-icon-1.png" alt="">
+                        <h3>quality coffee</h3>
+                    </div>
+                    <div class="icons">
+                        <img src="assets/image/about-icon-2.png" alt="">
+                        <h3>our branches</h3>
+                    </div>
+                    <div class="icons">
+                        <img src="assets/image/about-icon-3.png" alt="">
+                        <h3>free delivery</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SHOP SECTION  -->
+    <section class="shop container">
+        <h2 class="section-title">Shop Products</h2>
+
+        <!-- CONTENT  -->
+        <div class="shop-content">
+            <!-- BOX 1 -->
+            <div class="product-box">
+                <img src="assets/img/product1.jpg" alt="" class="product-img">
+                <h2 class="product-title">Nike Shoes</h2>
+                <span class="product-price">$79.5</span>
+                <i class='bx bx-shopping-bag add-cart'></i>
+            </div>
+            <!-- BOX 2 -->
+            <div class="product-box">
+                <img src="assets/img/product2.jpg" alt="" class="product-img">
+                <h2 class="product-title">BACKPACK</h2>
+                <span class="product-price">$59.5</span>
+                <i class='bx bx-shopping-bag add-cart'></i>
+            </div>
+            <!-- BOX 3 -->
+            <div class="product-box">
+                <img src="assets/img/product3.jpg" alt="" class="product-img">
+                <h2 class="product-title">METAL BOTTLE</h2>
+                <span class="product-price">$29.5</span>
+                <i class='bx bx-shopping-bag add-cart'></i>
+            </div>
+            <!-- BOX 4 -->
+            <div class="product-box">
+                <img src="assets/img/product4.jpg" alt="" class="product-img">
+                <h2 class="product-title">METAL SUNGLASSES</h2>
+                <span class="product-price">$105</span>
+                <i class='bx bx-shopping-bag add-cart'></i>
+            </div>
+            <!-- BOX 5 -->
+            <div class="product-box">
+                <img src="assets/img/product5.jpg" alt="" class="product-img">
+                <h2 class="product-title">PS5 Controller</h2>
+                <span class="product-price">$95</span>
+                <i class='bx bx-shopping-bag add-cart'></i>
+            </div>
+            <!-- BOX 6 -->
+            <div class="product-box">
+                <img src="assets/img/product6.jpg" alt="" class="product-img">
+                <h2 class="product-title">Galaxy Z Fold</h2>
+                <span class="product-price">$1400</span>
+                <i class='bx bx-shopping-bag add-cart'></i>
+            </div>
+            <!-- BOX 7 -->
+            <div class="product-box">
+                <img src="assets/img/product7.jpg" alt="" class="product-img">
+                <h2 class="product-title">Nokon Camera</h2>
+                <span class="product-price">$1700</span>
+                <i class='bx bx-shopping-bag add-cart'></i>
+            </div>
+            <!-- BOX 8 -->
+            <div class="product-box">
+                <img src="assets/img/product8.jpg" alt="" class="product-img">
+                <h2 class="product-title">Apple Watch</h2>
+                <span class="product-price">$110.5</span>
+                <i class='bx bx-shopping-bag add-cart'></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- link js  -->
+
+
+    <!-- SWIPER -->
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+    <script src="assets/js/main.js"></script>
+
+    <script src="jassets/js/script.js"></script>
+</body>
+
+</html>
