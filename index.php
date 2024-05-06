@@ -13,6 +13,10 @@ if (isset($_SESSION["user_id"])) {
     $name = $user_data[0]->name;
 
     $cart_data = $model->MOD_GET_CART_DATA($_SESSION["user_id"]);
+
+    if ($_SESSION["user_type"] == "admin") {
+        header("location: " . $base_url . "orders");
+    }
 }
 
 $total = 0;

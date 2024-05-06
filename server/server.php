@@ -40,6 +40,7 @@ if (isset($_POST["login"])) {
 
         if (password_verify($password, $hash)) {
             $_SESSION["user_id"] = $user_data[0]->id;
+            $_SESSION["user_type"] = $user_data[0]->user_type;
 
             $_SESSION["notification"] = array(
                 "title" => "Success!",
@@ -47,7 +48,7 @@ if (isset($_POST["login"])) {
                 "icon" => "success"
             );
 
-            $response = true;
+            $response = array("user_type" => $user_data[0]->user_type);
         } else {
             $_SESSION["notification"] = array(
                 "title" => "Oops...",
@@ -100,6 +101,27 @@ if (isset($_POST["place_order"])) {
     $_SESSION["notification"] = array(
         "title" => "Success!",
         "text" => "Your order has been placed.",
+        "icon" => "success"
+    );
+
+    echo json_encode(true);
+}
+
+if (isset($_POST["update_status"])) {
+    $order_id = $_POST["order_id"];
+    $status = $_POST["status"];
+
+    if ($status == "Approve") {
+        $status = $status . "d";
+    } else {
+        $status = $status . "ed";
+    }
+
+    $model->MOD_UPDATE_STATUS($status, $order_id);
+
+    $_SESSION["notification"] = array(
+        "title" => "Success!",
+        "text" => "Order has been " . $status . "!",
         "icon" => "success"
     );
 

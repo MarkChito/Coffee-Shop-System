@@ -6,5 +6,5 @@
     RewriteRule ^login$ views/auth/login_view.php [L]
 
     # Routing all "views/pages/admin/" files
-    RewriteRule ^available_books$ views/pages/main/available_books_view.php [L]
+    RewriteRule ^orders$ views/pages/admin/orders_view.php [L]
 </IfModule>

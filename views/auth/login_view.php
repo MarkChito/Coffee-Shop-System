@@ -140,7 +140,11 @@ if (session_status() != PHP_SESSION_ACTIVE) {
                     contentType: false,
                     success: function(response) {
                         if (response) {
-                            location.href = base_url;
+                            if (response.user_type == "admin") {
+                                location.href = base_url + "orders";
+                            } else {
+                                location.href = base_url;
+                            }
                         } else {
                             location.href = base_url + "login";
                         }

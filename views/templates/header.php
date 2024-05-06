@@ -31,7 +31,7 @@
             <a href="javascript:void(0)" class="<?= isset($_SESSION["user_id"]) ? "logout nav" : "login nav" ?>" style="text-decoration: none;"><?= isset($name) ? $name : "Account" ?></a>
         </nav>
 
-        <i class="fas fa-shopping-cart position-relative" id="cart-icon">
+        <i class="fas fa-shopping-cart position-relative <?= isset($_SESSION["user_id"]) ? null : "d-none" ?>" id="cart-icon">
             <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle <?= $cart_data ? null : "d-none" ?>" id="orders_badge"></span>
         </i>
 
@@ -50,7 +50,7 @@
 
                                 <div class="detail-box">
                                     <div class="cart-product-title"><?= $cart_data_row->item_name ?></div>
-                                    <div class="cart-price">₱<?= $cart_data_row->item_price ?></div>
+                                    <div class="cart-price">₱<?= number_format($cart_data_row->item_price, 2) ?></div>
                                     <div class="cart-product-qty">QTY: <strong>1</strong></div>
                                     <input type="number" value="1" class="cart-quantity d-none">
                                 </div>
@@ -68,7 +68,7 @@
 
             <div class="total">
                 <div class="total-title">Total</div>
-                <div class="total-price">₱<?= $total ?></div>
+                <div class="total-price">₱<?= number_format($total, 2) ?></div>
             </div>
 
             <button type="button" class="btn-buy" id="btn_place_order">Place Order<?= $orders > 1 ? "s" : null ?></button>

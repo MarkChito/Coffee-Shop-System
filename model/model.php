@@ -98,6 +98,18 @@ class Model
         $conn->close();
     }
     
+    public function MOD_UPDATE_STATUS($status, $order_id)
+    {
+        $conn = $this->MOD_CONNECT_TO_DATABASE();
+
+        $sql = $conn->prepare("UPDATE `tbl_info_orders` SET `status` = ? WHERE `id` = ?");
+        $sql->bind_param("ss", $status, $order_id);
+        $sql->execute();
+
+        $sql->close();
+        $conn->close();
+    }
+    
     public function MOD_REMOVE_FROM_CART($item_name)
     {
         $conn = $this->MOD_CONNECT_TO_DATABASE();
@@ -116,6 +128,27 @@ class Model
 
         $sql = $conn->prepare("SELECT * FROM `tbl_info_orders` WHERE `status` = 'Cart' AND `user_id` = ?");
         $sql->bind_param("s", $user_id);
+        $sql->execute();
+
+        $result = $sql->get_result();
+
+        $userObjects = array();
+
+        while ($userObject = $result->fetch_object()) {
+            $userObjects[] = $userObject;
+        }
+
+        $sql->close();
+        $conn->close();
+
+        return $userObjects;
+    }
+    
+    public function MOD_GET_ORDERS()
+    {
+        $conn = $this->MOD_CONNECT_TO_DATABASE();
+
+        $sql = $conn->prepare("SELECT * FROM `tbl_info_orders` WHERE `status` != 'Cart' ORDER BY `id` DESC");
         $sql->execute();
 
         $result = $sql->get_result();

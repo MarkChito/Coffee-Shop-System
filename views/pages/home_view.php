@@ -1,8 +1,9 @@
+<!-- Hero Section -->
 <section class="home" id="home">
     <div class="row">
         <div class="content">
             <h3>fresh coffee in the morning</h3>
-            <a href="#menu" class="btn">Buy One How</a>
+            <a href="#menu" class="btn">Buy One Now</a>
         </div>
 
         <div class="image">
@@ -66,49 +67,49 @@
         <div class="product-box">
             <img src="<?= $base_url ?>assets/image/coffee2-Cinnamon-Coffee-Smoothie.png" alt="" class="product-img">
             <h2 class="product-title">Cinnamon Coffee Smoothie</h2>
-            <span class="product-price">₱269</span>
+            <span class="product-price">₱269.00</span>
             <i class='fas fa-shopping-cart add-cart <?= isset($_SESSION["user_id"]) ? "add_cart" : null ?>'></i>
         </div>
         <!-- BOX 3 -->
         <div class="product-box">
             <img src="<?= $base_url ?>assets/image/coffee3-Creamy-Gourmet-Hot-Chocolate.png" alt="" class="product-img">
             <h2 class="product-title">Creamy Gourmet Hot Chocolate</h2>
-            <span class="product-price">₱219</span>
+            <span class="product-price">₱219.00</span>
             <i class='fas fa-shopping-cart add-cart <?= isset($_SESSION["user_id"]) ? "add_cart" : null ?>'></i>
         </div>
         <!-- BOX 4 -->
         <div class="product-box">
             <img src="<?= $base_url ?>assets/image/coffee7-Iced-White-Mocha-with-Caramel-and-Salted-Cold-Foam.png" alt="" class="product-img">
             <h2 class="product-title">Iced White Mocha with Caramel</h2>
-            <span class="product-price">₱299</span>
+            <span class="product-price">₱299.00</span>
             <i class='fas fa-shopping-cart add-cart <?= isset($_SESSION["user_id"]) ? "add_cart" : null ?>'></i>
         </div>
         <!-- BOX 5 -->
         <div class="product-box">
             <img src="<?= $base_url ?>assets/image/coffee5-Frozen-Irish-Coffee.png" alt="" class="product-img">
             <h2 class="product-title">Frozen Irish Coffee</h2>
-            <span class="product-price">₱309</span>
+            <span class="product-price">₱309.00</span>
             <i class='fas fa-shopping-cart add-cart <?= isset($_SESSION["user_id"]) ? "add_cart" : null ?>'></i>
         </div>
         <!-- BOX 6 -->
         <div class="product-box">
             <img src="<?= $base_url ?>assets/image/coffee6-Honey-Almond-Milk-Flat-White.png" alt="" class="product-img">
             <h2 class="product-title">Honey Almond Milk Flat White</h2>
-            <span class="product-price">₱249</span>
+            <span class="product-price">₱249.00</span>
             <i class='fas fa-shopping-cart add-cart <?= isset($_SESSION["user_id"]) ? "add_cart" : null ?>'></i>
         </div>
         <!-- BOX 7 -->
         <div class="product-box">
             <img src="<?= $base_url ?>assets/image/coffee8-Maple-Bacon-Latte.png" alt="" class="product-img">
             <h2 class="product-title">Maple Bacon Latte</h2>
-            <span class="product-price">₱239</span>
+            <span class="product-price">₱239.00</span>
             <i class='fas fa-shopping-cart add-cart <?= isset($_SESSION["user_id"]) ? "add_cart" : null ?>'></i>
         </div>
         <!-- BOX 8 -->
         <div class="product-box">
             <img src="<?= $base_url ?>assets/image/coffee9-Pumpkin-Spice-Coffee.png" alt="" class="product-img">
             <h2 class="product-title">Pumpkin-Spice-Coffee</h2>
-            <span class="product-price">₱319</span>
+            <span class="product-price">₱319.00</span>
             <i class='fas fa-shopping-cart add-cart <?= isset($_SESSION["user_id"]) ? "add_cart" : null ?>'></i>
         </div>
     </div>
