@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2024 at 10:18 PM
+-- Generation Time: May 06, 2024 at 07:09 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -31,7 +31,7 @@ CREATE TABLE `tbl_info_orders` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `item_name` varchar(255) NOT NULL,
-  `item_price` float NOT NULL,
+  `item_price` float(11,2) NOT NULL,
   `item_image` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -49,6 +49,13 @@ CREATE TABLE `tbl_info_useraccounts` (
   `password` varchar(255) NOT NULL,
   `user_type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tbl_info_useraccounts`
+--
+
+INSERT INTO `tbl_info_useraccounts` (`id`, `name`, `username`, `password`, `user_type`) VALUES
+(1, 'Administrator', 'admin', '$2y$10$D6piGDpWBp22eOqpuj6awuTlsIBItfV5bUQKBx55sf1zheqhqilJ.', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -80,7 +87,7 @@ ALTER TABLE `tbl_info_orders`
 -- AUTO_INCREMENT for table `tbl_info_useraccounts`
 --
 ALTER TABLE `tbl_info_useraccounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

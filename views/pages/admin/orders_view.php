@@ -58,7 +58,7 @@ if (isset($_SESSION["user_id"])) {
         <div class="d-block">
             <h1 class="mb-5 text-center"><u>Customer Orders</u></h1>
 
-            <div class="row d-flex align-items-center mb-2">
+            <div class="row d-flex align-items-center text-truncate mb-2">
                 <div class="col-md-6">
                     <strong>Administrator Name:</strong>
                     <span><?= $name ?></span>
